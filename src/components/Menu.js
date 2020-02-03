@@ -6,7 +6,7 @@ export default class CabMenu extends Component {
         return (
             <nav>
                 <div className="nav-wrapper black">
-                    <Link to={'/'}><img src="logo-white.png" alt="Logo" className="logo" /></Link>
+                    <Link to={'/'}><img src="logo.png" alt="Logo" className="logo" /></Link>
                 </div>
             </nav>
         )
