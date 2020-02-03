@@ -1,0 +1,79 @@
+/* - USEI A PROPRIA FOLHA DE ESTILO QUE JA VEM COM A INSTALACAO DO PROJETO REACTJS! 
+   - ZERA A MARGEM, DEFINE A ALTURA DO body E html E DEIXA O FUNDO DA PAGINA COM A COR DEFINIDA AQUI!/ */
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background-color: #f0f0f0;
+}
+
+/* CENTRALIZA E DA UM ESPACO A ESQUERDA NO LOGO DA nave.rs DISPOSTO NA BARRA FIXA NO TOPO! */
+
+.logo {
+  margin: 12px 0 0 12px;
+}
+
+/* DEFINE O TAMANHO MAXIMO QUE O PAINEL DE LOGIN PODE TER E O ESPACAMENTO ENTRE O TOPO E O MESMO! */
+
+.panel-login {
+  max-width: 320px;
+  margin: 70px auto;
+}
+
+/* MUDA A ESPECURA DA LINHA (BORDA) INFERIOR DO INPUT (ENTRADA) DOS FORMULARIOS! */
+
+input, input:focus {
+  border-bottom: 2px solid #666666 !important;
+  box-shadow: none !important;
+}
+
+/* DEIXA EM VERMELHOR A LINHA INFERIOR DOS INPUTS COM ERRO DE ENTRADA DE DADOS! */
+
+.error-input {
+  border-bottom: 2px solid red !important;
+  box-shadow: none !important;
+}
+
+/* MUDA A COR DE TODOS OS BOTOES E OS CANTOS ARREDONDADOS COM MAIS CIRCUNFERENCIA! */
+
+.btn, .btn:hover, .btn:active, .btn:focus {
+  background-color: black;
+  border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border: 0px solid #000000;
+  font-weight: 600;
+}
+
+/* ESPACAMENTO ENTRE A BARRA FIXA NO TOPO E A LINHA DOS CARDS E SUAS LATERAIS! */
+
+.spacing {
+  padding: 10px 20px 0px 20px;
+}
+
+/* ESPACAMENTO ENTRE A TABELA DE USUARIOS E O TITULO E BOTAO DESSA PAGINA! */
+
+.tbl {
+  margin-top: 12px;
+  background-color: #fff;
+  font-weight: 500;
+}
+
+/* ESPACAMENTO ENTRE O BOTO E BARRA FIXA NO TOPO (ALINHAMENTO ENTRE O BOTAO E O TITULO DA SECAO USUARIOS)! */
+
+.btn-criar {
+  margin: 1.90rem 0 0 0;
+}
+
+/* ESPACAMENTO ENTRE O TEXTO DOS BOTAOS E AS BORDAS ESQUERDA E DIREITA DOS MESMOS! */
+
+.button-space {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+/* DEFINE O TAMANHO MAXIMO DO FORMULARIO P/ NOVOS USUARIOS! */
+
+.panel-user {
+  max-width: 320px;
+}
