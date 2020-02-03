@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "nome": "Filé de peito (Sadia)",
+      "fabricacao": "09/01/2019",
+      "perecivel": true,
+      "validade": "05/11/2021",
+      "preco": 19.90
+    }
+  ]
+}
