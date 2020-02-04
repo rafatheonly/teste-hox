@@ -77,3 +77,9 @@ input, input:focus {
 .panel-user {
   max-width: 320px;
 }
+
+/* BOTAO DE VOLTAR */
+
+.btn-voltar {
+  margin-top: 20px;
+}

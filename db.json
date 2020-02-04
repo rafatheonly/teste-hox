@@ -6,7 +6,14 @@
       "fabricacao": "09/01/2019",
       "perecivel": true,
       "validade": "05/11/2021",
-      "preco": 19.90
+      "preco": 19.9
+    },
+    {
+      "fabricacao": "",
+      "perecivel": true,
+      "validade": "",
+      "preco": 0,
+      "id": 2
     }
   ]
 }
