@@ -7,7 +7,7 @@ html, body {
   background-color: #f0f0f0;
 }
 
-/* CENTRALIZA E DA UM ESPACO A ESQUERDA NO LOGO DA nave.rs DISPOSTO NA BARRA FIXA NO TOPO! */
+/* CENTRALIZA E DA UM ESPACO A ESQUERDA NO LOGO DA HOX DISPOSTO NA BARRA FIXA NO TOPO! */
 
 .logo {
   margin: 12px 0 0 12px;
@@ -18,6 +18,21 @@ html, body {
 .panel-login {
   max-width: 320px;
   margin: 70px auto;
+}
+
+/* DIMINUI UM POUCO O TITULO NA LISTA DE PRODUTOS QUANDO A TELA DO DISPOSITIVO FOR MENOR QUE 360px */
+
+@media (max-width: 360px) {
+  #titulo-produtos {
+    font-size: 26px
+  }
+}
+
+#paginacao {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* MUDA A ESPECURA DA LINHA (BORDA) INFERIOR DO INPUT (ENTRADA) DOS FORMULARIOS! */
@@ -51,7 +66,7 @@ input, input:focus {
   padding: 10px 20px 0px 20px;
 }
 
-/* ESPACAMENTO ENTRE A TABELA DE USUARIOS E O TITULO E BOTAO DESSA PAGINA! */
+/* ESPACAMENTO ENTRE A TABELA DE PRODUTOS E O TITULO E BOTAO DESSA PAGINA! */
 
 .tbl {
   margin-top: 12px;
@@ -59,7 +74,7 @@ input, input:focus {
   font-weight: 500;
 }
 
-/* ESPACAMENTO ENTRE O BOTO E BARRA FIXA NO TOPO (ALINHAMENTO ENTRE O BOTAO E O TITULO DA SECAO USUARIOS)! */
+/* ESPACAMENTO ENTRE O BOTO E BARRA FIXA NO TOPO (ALINHAMENTO ENTRE O BOTAO E O TITULO DA SECAO PRODUTOS)! */
 
 .btn-criar {
   margin: 1.90rem 0 0 0;
@@ -72,9 +87,9 @@ input, input:focus {
   padding-right: 50px;
 }
 
-/* DEFINE O TAMANHO MAXIMO DO FORMULARIO P/ NOVOS USUARIOS! */
+/* DEFINE O TAMANHO MAXIMO DO FORMULARIO P/ NOVOS PRODUTOS! */
 
-.panel-user {
+.panel-produto {
   max-width: 320px;
 }
 
