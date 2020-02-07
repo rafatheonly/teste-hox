@@ -30,9 +30,13 @@ export default class Detalhes extends Component {
                         <p><strong>Perecível:</strong> {this.state.perecivel ? "SIM" : "NÂO"}</p>
                         <p><strong>Data de validade:</strong> {this.state.validade}</p>
                         <p><strong>Preço:</strong> {(this.state.preco).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
-                        <p>
-                            <Link to="/produtos" className="btn waves-effect waves-light button-space">VOLTAR</Link>
-                        </p>
+                        <div className="panel-produto">
+                            <div className="row">
+                                <div className="col s12">
+                                    <Link to="/produtos" className="btn waves-effect waves-light col s12">VOLTAR</Link>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

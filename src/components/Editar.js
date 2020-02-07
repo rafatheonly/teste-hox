@@ -25,19 +25,19 @@ export default class Editar extends Component {
   async componentDidMount() {
     const { match: { params } } = this.props;
     const produto = await Conecta.get(`/produtos/${params.id}`)
-    let preco = produto.data.preco.toString()
+    let preco = "" + produto.data.preco
     let partesPreco = preco.split(".")
-    produto.data.preco = (partesPreco[0] + "," + partesPreco[1]).toString()
+    produto.data.preco = (partesPreco[0] + "," + (partesPreco[1] === undefined ? '00' : partesPreco[1])).toString()
     this.setState(produto.data)
-    M.updateTextFields()
   }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  handleChange1 = () => {
-    this.setState({ perecivel: 1 })
+  handleChange = e => {
+    const isCheckbox = e.target.type === "checkbox";
+    this.setState({ [e.target.name]: isCheckbox ? e.target.checked : e.target.value })
   }
 
   validacoes = () => {
@@ -97,6 +97,7 @@ export default class Editar extends Component {
     if (this.validacoes()) {
       try {
         alterado.validade = alterado.validade === '' ? '—' : alterado.validade
+        alterado.validade = alterado.perecivel === false ? '—' : alterado.validade
         let partesPreco = alterado.preco.split(",");
         alterado.preco = parseFloat(partesPreco[0] + "." + partesPreco[1])
         const produto = await Conecta.put(`/produtos/${this.state.id}`, alterado)
@@ -130,7 +131,7 @@ export default class Editar extends Component {
                       value={this.state.nome} />
                     <label
                       htmlFor="nome"
-                      className={this.state.erroNome ? "red-text" : ''}>Nome do produto</label>
+                      className={this.state.erroNome ? "red-text" : this.state.nome !== "" ? "active" : ""}>Nome do produto</label>
                     <span className="helper-text red-text">{this.state.erroNome}</span>
                   </div>
                   <div className="input-field col s12">
@@ -144,7 +145,7 @@ export default class Editar extends Component {
                       mask="99/99/9999"></InputMask>
                     <label
                       htmlFor="fabricacao"
-                      className={this.state.erroFabricacao ? "red-text" : ''}>Data de fabricação</label>
+                      className={this.state.erroFabricacao ? "red-text" : this.state.fabricacao !== "" ? "active" : ""}>Data de fabricação</label>
                     <span className="helper-text red-text">{this.state.erroFabricacao}</span>
                   </div>
                   <div className="input-field col s12">
@@ -157,7 +158,7 @@ export default class Editar extends Component {
                       value={this.state.preco}></InputMask>
                     <label
                       htmlFor="preco"
-                      className={this.state.erroPreco ? "red-text" : ''}>Preço do produto</label>
+                      className={this.state.erroPreco ? "red-text" : this.state.preco !== "" ? "active" : ""}>Preço do produto</label>
                     <span className="helper-text red-text">{this.state.erroPreco}</span>
                   </div>
                   {this.state.perecivel ? <div className="input-field col s12">
@@ -171,17 +172,18 @@ export default class Editar extends Component {
                       mask="99/99/9999"></InputMask>
                     <label
                       htmlFor="validade"
-                      className={this.state.erroValidade ? "red-text" : ''}>Data de validade</label>
+                      className={this.state.erroValidade ? "red-text" : this.state.validade !== "" ? "active" : ""}>Data de validade</label>
                     <span className="helper-text red-text">{this.state.erroValidade}</span>
                   </div> : ''}
                   <div className="input-field col s12">
                     <label>
                       <input
+                        name="perecivel"
                         type="checkbox"
                         className="filled-in"
-                        onChange={this.handleChange1}
+                        onChange={this.handleChange}
                         value={this.state.perecivel}
-                        checked={this.state.perecivel ? true : false} />
+                        checked={this.state.perecivel} />
                       <span>Perecível</span>
                     </label>
                     <br />
@@ -196,7 +198,7 @@ export default class Editar extends Component {
             </div>
           </div>
           <div className="col s12 right-align">
-            <Link to="/produtos" className="btn waves-effect waves-light button-space">VOLTAR</Link>
+            <Link to="/produtos" className="btn waves-effect waves-light">VOLTAR</Link>
           </div>
         </div>
       )

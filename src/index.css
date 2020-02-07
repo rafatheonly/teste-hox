@@ -10,7 +10,15 @@ html, body {
 /* CENTRALIZA E DA UM ESPACO A ESQUERDA NO LOGO DA HOX DISPOSTO NA BARRA FIXA NO TOPO! */
 
 .logo {
-  margin: 12px 0 0 12px;
+  margin: 12px 0 0px 20px;
+}
+
+/* ACERTA OS BOTOES DENTRO DESSA DIMENSAO DE TELA SETADA ABAIXO! */
+
+@media (max-width: 320px) {
+  .botoes .btn {
+    font-size: 12px;
+  }
 }
 
 /* DEFINE O TAMANHO MAXIMO QUE O PAINEL DE LOGIN PODE TER E O ESPACAMENTO ENTRE O TOPO E O MESMO! */
@@ -20,13 +28,13 @@ html, body {
   margin: 70px auto;
 }
 
-/* DIMINUI UM POUCO O TITULO NA LISTA DE PRODUTOS QUANDO A TELA DO DISPOSITIVO FOR MENOR QUE 360px */
+/* DEIXA O ITEM ESCOLHIDO DA ORDENACAO COM DESTAQUE! */
 
-@media (max-width: 360px) {
-  #titulo-produtos {
-    font-size: 26px
-  }
+.active {
+  font-weight: 900
 }
+
+/* ESTILIZA OS BOTEOS DA PAGINACAO */
 
 #paginacao {
   margin-top: 10px;
@@ -80,14 +88,7 @@ input, input:focus {
   margin: 1.90rem 0 0 0;
 }
 
-/* ESPACAMENTO ENTRE O TEXTO DOS BOTAOS E AS BORDAS ESQUERDA E DIREITA DOS MESMOS! */
-
-.button-space {
-  padding-left: 50px;
-  padding-right: 50px;
-}
-
-/* DEFINE O TAMANHO MAXIMO DO FORMULARIO P/ NOVOS PRODUTOS! */
+/* DEFINE O TAMANHO MAXIMO DO FORMULARIO P/ NOVOS PRODUTOS, DETALHES, EDICAO DO PRODUTO! */
 
 .panel-produto {
   max-width: 320px;

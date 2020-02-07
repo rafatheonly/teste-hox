@@ -1,100 +1,36 @@
 {
   "produtos": [
     {
-      "nome": "Teste 04",
-      "fabricacao": "09/01/2019",
+      "nome": "Leite Parmalate (12 unidades)",
+      "fabricacao": "01/10/2000",
       "perecivel": true,
-      "validade": "05/11/2021",
-      "preco": 12.5,
+      "validade": "09/01/2001",
+      "preco": 11.9,
       "id": 1
     },
     {
-      "nome": "Ovos brancos (Coloniacerta)",
-      "fabricacao": "09/02/2009",
-      "perecivel": 1,
-      "validade": "08/09/2010",
-      "preco": 12.9,
-      "id": 4
-    },
-    {
-      "nome": "Teste 02",
-      "fabricacao": "09/03/2009",
-      "perecivel": 1,
-      "validade": "09/06/2010",
-      "preco": 1,
-      "id": 5
-    },
-    {
-      "nome": "Leite Parmalate",
-      "fabricacao": "22/04/2018",
-      "perecivel": 1,
-      "validade": "09/09/2019",
-      "preco": 22.3,
-      "id": 7
-    },
-    {
       "nome": "Teste 04",
-      "fabricacao": "22/09/2000",
-      "perecivel": 1,
-      "validade": "20/08/2004",
-      "preco": "22,90",
-      "id": 8
-    },
-    {
-      "nome": "Leite Parmalate 06",
-      "fabricacao": "02/02/2019",
-      "perecivel": false,
-      "validade": "—",
-      "preco": 2280,
-      "id": 9
+      "fabricacao": "09/10/2009",
+      "perecivel": true,
+      "validade": "02/09/2010",
+      "preco": 2.9,
+      "id": 2
     },
     {
       "nome": "Feijão Tordilho",
-      "fabricacao": "02/09/2000",
-      "perecivel": false,
-      "validade": "—",
+      "fabricacao": "09/02/1998",
+      "perecivel": true,
+      "validade": "10/10/2019",
       "preco": 2.9,
-      "id": 10
+      "id": 3
     },
     {
-      "nome": "Leite Parmalate",
-      "fabricacao": "22/04/2019",
+      "nome": "Teste 05",
+      "fabricacao": "09/09/2000",
       "perecivel": false,
       "validade": "—",
-      "preco": "2,50",
-      "id": 12
-    },
-    {
-      "nome": "Leite Parmalate",
-      "fabricacao": "03/03/2003",
-      "perecivel": false,
-      "validade": "—",
-      "preco": 1,
-      "id": 13
-    },
-    {
-      "nome": "Leite Parmalate 064",
-      "fabricacao": "09/10/2009",
-      "perecivel": false,
-      "validade": "—",
-      "preco": "1,50",
-      "id": 14
-    },
-    {
-      "nome": "Teste 04",
-      "fabricacao": "02/01/2000",
-      "perecivel": 1,
-      "validade": "01/01/2001",
-      "preco": 1.49,
-      "id": 15
-    },
-    {
-      "nome": "Teste 04",
-      "fabricacao": "03/03/2000",
-      "perecivel": false,
-      "validade": "—",
-      "preco": 1.5,
-      "id": 16
+      "preco": 2.5,
+      "id": 4
     }
   ]
 }

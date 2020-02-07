@@ -12,8 +12,8 @@ const Item = props => {
             <td className="right-align">{(props.preco).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</td>
             <td className="center-align">
                 <Link to={`/editar/${props.id}`}><i className="far fa-edit"></i></Link>&nbsp;&nbsp;
-                <a href="javascript:void(0);" onClick={(e) => window.confirm(`Confirma a exclusão do produto ${props.nome}?`)
-                    && props.excluir(props.id, e)}><i className="far fa-trash-alt"></i></a>
+                <Link to="#" onClick={(e) => window.confirm(`Confirma a exclusão do produto ${props.nome}?`)
+                    && props.excluir(props.id, e)}><i className="far fa-trash-alt"></i></Link>
             </td>
         </tr>
     )

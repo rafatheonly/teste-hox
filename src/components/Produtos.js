@@ -8,50 +8,100 @@ export default class Produtos extends Component {
 
     state = {
         produtos: [],
-        url: '/produtos?_page=',
-        page: 1
-
+        page: 1,
+        totalProdutos: 0,
+        idAsc: '',
+        idDesc: '',
+        prodAsc: '',
+        prodDesc: '',
+        btnProximo: false
     }
 
     async componentDidMount() {
-        console.log('um: ' + this.state.page)
-        const lista = await Conecta.get(this.state.url + this.state.page)
-        this.setState({ produtos: lista.data })
+        const produtos = await Conecta.get('/produtos')
+        this.setState({ totalProdutos: produtos.data.length })
+        this.loadProdutos(this.state.page, '')
+        M.AutoInit()
+    }
+
+    loadProdutos = async (page, filter) => {
+        const produtos = await Conecta.get(`/produtos?_page=${page}${filter}`)
+        this.setState({ produtos: produtos.data })
+        if (filter === '' || filter === '&_sort=id&_order=asc') {
+            this.setState({ idAsc: 'active', idDesc: '', prodAsc: '', prodDesc: '' })
+        }
+        if (filter === '&_sort=id&_order=desc') {
+            this.setState({ idAsc: '', idDesc: 'active', prodAsc: '', prodDesc: '' })
+        }
+        if (filter === '&_sort=nome&_order=asc') {
+            this.setState({ idAsc: '', idDesc: '', prodAsc: 'active', prodDesc: '' })
+        }
+        if (filter === '&_sort=nome&_order=desc') {
+            this.setState({ idAsc: '', idDesc: '', prodAsc: '', prodDesc: 'active' })
+        }
+        const proximos = await Conecta.get(`/produtos?_page=${page + 1}${filter}`)
+        proximos.data.length === 0 ? this.setState({ btnProximo: true }) : this.setState({ btnProximo: false })
     }
 
     excluir = async (id) => {
         try {
             await Conecta.delete(`/produtos/${id}`)
-            this.setState({
-                produtos: this.state.produtos.filter(produto => produto.id !== id)
-            })
+            this.setState({ produtos: this.state.produtos.filter(produto => produto.id !== id) })
+            this.loadProdutos(1, '')
             M.toast({ html: `Produto excluído com sucesso!` })
         } catch (erro) {
             alert('Ops! Algo deu errado: ' + erro)
         }
     }
-    
-    paginacao = (action) => {
-        if (action === 'anterior') {
-            //_page - 1
-            //console.log(1)
-            this.setState({page: this.state.page - 1})
+
+    paginacao = (acao) => {
+        if (acao === 'anterior') {
+            this.loadProdutos(this.state.page - 1)
+            this.setState({ page: this.state.page - 1 })
         } else {
-            //_page + 1
-            //console.log(2)
-            this.setState({page: this.state.page + 1})
-            console.log(this.state.page)
+            this.loadProdutos(this.state.page + 1)
+            this.setState({ page: this.state.page + 1 })
         }
     }
 
     render() {
         return (
             <div className="row spacing">
-                <div className="col s6">
-                    <h4 id="titulo-produtos"><strong>PRODUTOS</strong></h4>
+                <div className="col s12">
+                    <h4 id="titulo-produtos"><strong>PRODUTOS ({this.state.totalProdutos})</strong></h4>
                 </div>
-                <div className="col s6 right-align btn-criar">
-                    <Link to="/produto" className="btn waves-effect waves-light button-space">NOVO</Link>
+                <div className="col s12 right-align botoes">
+                    <Link to="#" className="btn waves-effect waves-light dropdown-trigger"
+                        data-target="dropdown1">ORDENAR</Link>&nbsp;
+                    <ul id='dropdown1' className='dropdown-content'>
+                        <li>
+                            <Link
+                                to="#" className={this.state.idAsc}
+                                onClick={() => { this.loadProdutos(this.state.page, '&_sort=id&_order=asc') }}>
+                                ID &darr;
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="#" className={this.state.idDesc}
+                                onClick={() => { this.loadProdutos(this.state.page, '&_sort=id&_order=desc') }}>
+                                ID &uarr;
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="#" className={this.state.prodAsc}
+                                onClick={() => { this.loadProdutos(this.state.page, '&_sort=nome&_order=asc') }}>
+                                PROD. &darr;
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="#" className={this.state.prodDesc}
+                                onClick={() => { this.loadProdutos(this.state.page, '&_sort=nome&_order=desc') }}>
+                                PROD. &uarr;
+                            </Link>
+                        </li>
+                    </ul>
+                    <Link to="/produto" className="btn waves-effect waves-light">NOVO</Link>&nbsp;
+                    <Link to="/" className="btn waves-effect waves-light">VOLTAR</Link>
                 </div>
                 <div className="col s12">
                     <table className="responsive-table tbl">
@@ -85,14 +135,13 @@ export default class Produtos extends Component {
                     <button
                         type="button"
                         className="btn waves-effect waves-light"
-                        onClick={() => {this.paginacao('anterior')}}>ANTERIOR</button>
+                        onClick={() => { this.paginacao('anterior') }}
+                        disabled={this.state.page < 2}>ANTERIOR</button>
                     <button
                         type="button"
                         className="btn waves-effect waves-light"
-                        onClick={() => {this.paginacao('proxima')}}>PRÓXIMA</button>
-                </div>
-                <div className="col s12 right-align btn-voltar">
-                    <Link to="/" className="btn waves-effect waves-light button-space">VOLTAR</Link>
+                        onClick={() => { this.paginacao('proxima') }}
+                        disabled={this.state.btnProximo}>PRÓXIMA</button>
                 </div>
             </div>
         )
