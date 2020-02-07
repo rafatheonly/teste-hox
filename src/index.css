@@ -30,7 +30,7 @@ html, body {
 
 /* DEIXA O ITEM ESCOLHIDO DA ORDENACAO COM DESTAQUE! */
 
-.active {
+.ativo {
   font-weight: 900
 }
 
@@ -98,4 +98,10 @@ input, input:focus {
 
 .btn-voltar {
   margin-top: 20px;
+}
+
+/* MUDA A COR DOS ITENS DO MENU SUSPENCO DA ORDENACAO DOS CAMPOS DA TABELA QUE LISTA OS PRODUTOS! */
+
+li span {
+  color: #000000;
 }

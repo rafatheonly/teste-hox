@@ -1,36 +1,100 @@
 {
   "produtos": [
     {
-      "nome": "Leite Parmalate (12 unidades)",
-      "fabricacao": "01/10/2000",
+      "nome": "Leite Parmalat (12 unidades)",
+      "fabricacao": "01/10/2019",
       "perecivel": true,
-      "validade": "09/01/2001",
-      "preco": 11.9,
+      "validade": "01/10/2020",
+      "preco": 22,
       "id": 1
     },
     {
-      "nome": "Teste 04",
-      "fabricacao": "09/10/2009",
+      "nome": "Coxa Seara",
+      "fabricacao": "10/11/2018",
       "perecivel": true,
-      "validade": "02/09/2010",
-      "preco": 2.9,
+      "validade": "02/09/2020",
+      "preco": 21.9,
       "id": 2
     },
     {
-      "nome": "Feijão Tordilho",
-      "fabricacao": "09/02/1998",
+      "nome": "Salsicha Hod Dog Perdigão",
+      "fabricacao": "09/02/2018",
       "perecivel": true,
       "validade": "10/10/2019",
-      "preco": 2.9,
+      "preco": 24.5,
       "id": 3
     },
     {
-      "nome": "Teste 05",
-      "fabricacao": "09/09/2000",
+      "nome": "Açúcar Refinado Caravelas",
+      "fabricacao": "09/09/2017",
       "perecivel": false,
       "validade": "—",
       "preco": 2.5,
       "id": 4
+    },
+    {
+      "nome": "Feijão Tordilho",
+      "fabricacao": "02/02/2019",
+      "perecivel": false,
+      "validade": "—",
+      "preco": 4.5,
+      "id": 5
+    },
+    {
+      "nome": "Presunto Fatiado Sadia 200 g",
+      "fabricacao": "20/11/2019",
+      "perecivel": true,
+      "validade": "09/11/2020",
+      "preco": 5.4,
+      "id": 6
+    },
+    {
+      "nome": "Arroz Extremo Sul 1 kg",
+      "fabricacao": "02/03/2017",
+      "perecivel": false,
+      "validade": "—",
+      "preco": 3.99,
+      "id": 7
+    },
+    {
+      "nome": "Pipoca Zaeli",
+      "fabricacao": "02/05/2017",
+      "perecivel": false,
+      "validade": "—",
+      "preco": 3.99,
+      "id": 8
+    },
+    {
+      "nome": "Nescau Nestle 400 g",
+      "fabricacao": "10/12/2018",
+      "perecivel": false,
+      "validade": "—",
+      "preco": 5.2,
+      "id": 9
+    },
+    {
+      "nome": "Ninho Nestle 400 g",
+      "fabricacao": "20/06/2017",
+      "perecivel": false,
+      "validade": "—",
+      "preco": 14.9,
+      "id": 10
+    },
+    {
+      "nome": "Picanha Friboi",
+      "fabricacao": "09/09/2017",
+      "perecivel": true,
+      "validade": "10/10/2018",
+      "preco": 65.9,
+      "id": 11
+    },
+    {
+      "nome": "Macarrão Espaguete Orquídea",
+      "fabricacao": "09/09/2019",
+      "perecivel": false,
+      "validade": "—",
+      "preco": 2.89,
+      "id": 12
     }
   ]
 }

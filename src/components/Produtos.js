@@ -28,16 +28,16 @@ export default class Produtos extends Component {
         const produtos = await Conecta.get(`/produtos?_page=${page}${filter}`)
         this.setState({ produtos: produtos.data })
         if (filter === '' || filter === '&_sort=id&_order=asc') {
-            this.setState({ idAsc: 'active', idDesc: '', prodAsc: '', prodDesc: '' })
+            this.setState({ idAsc: 'ativo', idDesc: '', prodAsc: '', prodDesc: '' })
         }
         if (filter === '&_sort=id&_order=desc') {
-            this.setState({ idAsc: '', idDesc: 'active', prodAsc: '', prodDesc: '' })
+            this.setState({ idAsc: '', idDesc: 'ativo', prodAsc: '', prodDesc: '' })
         }
         if (filter === '&_sort=nome&_order=asc') {
-            this.setState({ idAsc: '', idDesc: '', prodAsc: 'active', prodDesc: '' })
+            this.setState({ idAsc: '', idDesc: '', prodAsc: 'ativo', prodDesc: '' })
         }
         if (filter === '&_sort=nome&_order=desc') {
-            this.setState({ idAsc: '', idDesc: '', prodAsc: '', prodDesc: 'active' })
+            this.setState({ idAsc: '', idDesc: '', prodAsc: '', prodDesc: 'ativo' })
         }
         const proximos = await Conecta.get(`/produtos?_page=${page + 1}${filter}`)
         proximos.data.length === 0 ? this.setState({ btnProximo: true }) : this.setState({ btnProximo: false })
@@ -47,7 +47,8 @@ export default class Produtos extends Component {
         try {
             await Conecta.delete(`/produtos/${id}`)
             this.setState({ produtos: this.state.produtos.filter(produto => produto.id !== id) })
-            this.loadProdutos(1, '')
+            this.setState({page: 1})
+            this.componentDidMount()
             M.toast({ html: `Produto excluído com sucesso!` })
         } catch (erro) {
             alert('Ops! Algo deu errado: ' + erro)
@@ -57,10 +58,10 @@ export default class Produtos extends Component {
     paginacao = (acao) => {
         if (acao === 'anterior') {
             this.loadProdutos(this.state.page - 1)
-            this.setState({ page: this.state.page - 1 })
+            this.setState({ page: this.state.page - 1, idAsc: 'ativo', idDesc: '', prodAsc: '', prodDesc: '' })
         } else {
             this.loadProdutos(this.state.page + 1)
-            this.setState({ page: this.state.page + 1 })
+            this.setState({ page: this.state.page + 1, idAsc: 'ativo', idDesc: '', prodAsc: '', prodDesc: '' })
         }
     }
 
@@ -78,25 +79,25 @@ export default class Produtos extends Component {
                             <Link
                                 to="#" className={this.state.idAsc}
                                 onClick={() => { this.loadProdutos(this.state.page, '&_sort=id&_order=asc') }}>
-                                ID &darr;
+                                <span>ID &darr;</span>
                             </Link>
                         </li>
                         <li>
                             <Link to="#" className={this.state.idDesc}
                                 onClick={() => { this.loadProdutos(this.state.page, '&_sort=id&_order=desc') }}>
-                                ID &uarr;
+                                <span>ID &uarr;</span>
                             </Link>
                         </li>
                         <li>
                             <Link to="#" className={this.state.prodAsc}
                                 onClick={() => { this.loadProdutos(this.state.page, '&_sort=nome&_order=asc') }}>
-                                PROD. &darr;
+                                <span>PROD. &darr;</span>
                             </Link>
                         </li>
                         <li>
                             <Link to="#" className={this.state.prodDesc}
                                 onClick={() => { this.loadProdutos(this.state.page, '&_sort=nome&_order=desc') }}>
-                                PROD. &uarr;
+                                <span>PROD. &uarr;</span>
                             </Link>
                         </li>
                     </ul>
